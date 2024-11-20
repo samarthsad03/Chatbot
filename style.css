@@ -55,6 +55,8 @@ body{
     inset -2px -4px 10px black;
     font-size: 18px;
     colour: white;
+    border-left: none;
+     
 }
 
 #btn{
@@ -66,7 +68,7 @@ body{
      border-radius: 0px 25px 25px 0px;
      transition: 0.5s all;
 }
-#btn: hover{
+#btn:hover{
     background: #FF99FF;
 
 }
