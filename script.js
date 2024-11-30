@@ -3,11 +3,33 @@ let container=document.querySelector(".container")
 let btn = document.querySelector("#btn")
 let chatContainer = document.querySelector(".chat-container")
 let userMessage = null;
+
+let API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyB6IwHM8g8ReTeX7SZUAd75CzXp3tP-lG4'
+
+
 function createChatbox(html, className){
     let div = document.createElement("div")  //document ke andar element create kar dega 
     div.classList.add(className)  //abhi classname ke andar copy kara hai user chatbox
     div.innerHTML= html
     return div //jo neeche banaya hai  userChatbox = createchatbox udher catch kar lenge 
+}
+async function getApiResponse (aiChatbox) {
+    try{
+        let response=await fetch(API_URL,{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                "contents":[
+                {"role": "user",
+                "parts":[{"text":"userMessage"}]}]
+         })
+    })
+    let data = (await response).json();
+    let apiresponse = data?.candidates[0].content.parts[0].text;
+    }
+    catch(error){   //idher exceptioa aynge 
+        console.log(error)
+    }
 }
 
 function showLoading(){
