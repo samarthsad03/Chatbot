@@ -39,7 +39,7 @@ const textElement = aiChatbox.querySelector(".text")
         console.log(error)
     }
     finally{
-        aiChatbox.querySelector(".loading").style.display="none"
+        aiChatbox.querySelector(".loading").style.display="none" //jab bhi aajayga result ye loading wali gif hatt jaygi 
       }
       
 }
@@ -61,7 +61,7 @@ btn.addEventListener("click",()=>{
     userMessage=prompt.value;
     if(prompt.value=""){
       container.style.display="flex"
-    }else{
+    }{
        container.style.display="none"
     }
     if(!userMessage)return;
